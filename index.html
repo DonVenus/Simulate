@@ -1,8 +1,21 @@
 <!DOCTYPE HTML>
 <head>
 	<title>Simulate</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<canvas id="game" height="600" width="800">
+	<h1>SIMULATE</h1>
+	<canvas id="game" height="600" width="600">
 	</canvas>
+	<div class="game-buttons">
+		<div class="color-button">
+			<button id="place-red" class="sub-button">Place Red</button> 
+			Count: <span id="red-count">0</span>
+		</div>
+		<div class="color-button">
+			<button id="place-blue" class="sub-button">Place Blue</button>
+			Count: <span id="blue-count">0</span>
+		</div>
+	</div>
+	<script src="game.js"></script>
 </body>
