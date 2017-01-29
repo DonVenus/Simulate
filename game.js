@@ -24,6 +24,7 @@
 		this.posY = positionY;
 		this.indColor = color;
 		this.coolDown = 0;
+		this.healthRegen = 300;
 		this.health = 3;
 		this.fireLaser = function(velX, velY) {
 			laserArray.push(new laser(this.posX, this.posY, velX, velY, this.indColor));
@@ -97,6 +98,14 @@
 				ctx.fillRect(personArray[i].posX, personArray[i].posY, 5, 5);
 				personArray.splice(i, 1);
 				continue;
+			}
+			if (personArray[i].healthRegen == 0) {
+				if (personArray[i].health != 3) {
+					personArray[i].health++;
+				}
+			}
+			else {
+				personArray[i].healthRegen--;
 			}
 			var moveX = Math.floor(Math.random() * 2);
 			var moveY = Math.floor(Math.random() * 2);
@@ -187,6 +196,7 @@
 			if (Math.abs(arr[i].posX - laser.posX) <= 4 && Math.abs(arr[i].posY - laser.posY) <= 4) {
 				laserArray.splice(index, 1);
 				arr[i].health--;
+				arr[i].healthRegen = 300;
 				return true;
 			}
 		}
